@@ -1,0 +1,25 @@
+import { ChatOpenAI } from "@langchain/openai";
+import { ChatPromptTemplate } from "@langchain/core/prompts";
+import { MarkdownListOutputParser, StringOutputParser } from "@langchain/core/output_parsers";
+
+
+async function main() {
+  const prompt = ChatPromptTemplate.fromMessages([
+    ["human", "Tell me a short joke about {topic}"],
+  ]);
+  const model = new ChatOpenAI({});
+  const outputParser = new StringOutputParser();
+
+  const chain = prompt.pipe(model).pipe(outputParser);
+
+  const response = await chain.invoke({
+    topic: "ice cream",
+  });
+  console.log(response);
+  /**
+  Why did the ice cream go to the gym?
+  Because it wanted to get a little "cone"ditioning!
+   */
+}
+
+main();
