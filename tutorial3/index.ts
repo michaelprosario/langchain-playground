@@ -1,10 +1,7 @@
 
-import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
 import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
-import { MemoryVectorStore } from "langchain/vectorstores/memory";
 import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
 import { ChatPromptTemplate } from "@langchain/core/prompts";
-import { CheerioWebBaseLoader } from "@langchain/community/document_loaders/web/cheerio"
 import { createRetrievalChain } from "langchain/chains/retrieval";
 
 import {
@@ -51,8 +48,6 @@ const config: PGVectorStoreArgs = {
   distanceStrategy: "cosine" as DistanceStrategy,
 };
 
-
-
 async function main() {
   console.log("start main...")
  
@@ -63,15 +58,6 @@ async function main() {
   const pgvectorStore = await PGVectorStore.initialize(embeddings,config);
 
   console.log("pgvectorStore started...")
-
-  await pgvectorStore.addDocuments([
-    { pageContent: "what's this", metadata: { a: 2 } },
-    { pageContent: "Cat drinks milk", metadata: { a: 1 } },
-  ]);
-
-  console.log("documents added")
-
-  const splitter = new RecursiveCharacterTextSplitter();
 
   const prompt =
     ChatPromptTemplate.fromTemplate(`Answer the following question based only on the provided context:
