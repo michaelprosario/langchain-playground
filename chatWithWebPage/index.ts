@@ -9,9 +9,7 @@ import { createRetrievalChain } from "langchain/chains/retrieval";
 const readlineSync = require('readline-sync');
 
 async function main() {
-  const loader = new CheerioWebBaseLoader(
-    "https://www.vatican.va/content/john-paul-ii/en/letters/1994/documents/hf_jp-ii_let_02021994_families.html"
-  );
+  const loader = new CheerioWebBaseLoader("https://en.wikipedia.org/wiki/History_of_Google");
 
   const docs = await loader.load();
 

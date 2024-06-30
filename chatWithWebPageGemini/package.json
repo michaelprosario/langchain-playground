@@ -1,0 +1,12 @@
+{
+  "dependencies": {
+    "@langchain/community": "^0.2.15",
+    "@langchain/core": "^0.2.10",
+    "@langchain/google-genai": "^0.0.21",
+    "@langchain/openai": "^0.2.1",
+    "cheerio": "^1.0.0-rc.12",
+    "inquirer": "^9.3.1",
+    "langchain": "^0.2.8",
+    "readline-sync": "^1.4.10"
+  }
+}
