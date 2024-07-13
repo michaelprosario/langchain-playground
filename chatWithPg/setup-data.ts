@@ -1,9 +1,5 @@
 
-import { RecursiveCharacterTextSplitter } from "langchain/text_splitter";
-import { ChatOpenAI, OpenAIEmbeddings } from "@langchain/openai";
-import { createStuffDocumentsChain } from "langchain/chains/combine_documents";
-import { ChatPromptTemplate } from "@langchain/core/prompts";
-import { createRetrievalChain } from "langchain/chains/retrieval";
+import { OpenAIEmbeddings } from "@langchain/openai";
 
 import {
   DistanceStrategy,
